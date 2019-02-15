@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ArkEcosystem\\Crypto\\": "src"
+            "Qredit\\Crypto\\": "src"
         }
     },
     "autoload-dev": {
