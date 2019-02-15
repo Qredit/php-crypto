@@ -1,5 +1,5 @@
 {
-    "name": "arkecosystem/crypto",
+    "name": "qredit/crypto",
     "description": "A simple PHP Cryptography Implementation for the Ark Blockchain.",
     "keywords": ["api", "ark", "blockchain", "crypto", "currency"],
     "license": "MIT",
@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ArkEcosystem\\Tests\\Crypto\\": "tests"
+            "Qredit\\Tests\\Crypto\\": "tests"
         }
     },
     "config": {
