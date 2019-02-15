@@ -26,9 +26,9 @@ class Mainnet extends AbstractNetwork
      * @see Network::$base58PrefixMap
      */
     protected $base58PrefixMap = [
-        self::BASE58_ADDRESS_P2PKH => '17',
+        self::BASE58_ADDRESS_P2PKH => '3a',
         self::BASE58_ADDRESS_P2SH  => '00',
-        self::BASE58_WIF           => 'aa',
+        self::BASE58_WIF           => 'bb',
     ];
 
     /**
@@ -37,8 +37,8 @@ class Mainnet extends AbstractNetwork
      * @see Network::$bip32PrefixMap
      */
     protected $bip32PrefixMap = [
-        self::BIP32_PREFIX_XPUB => '46090600',
-        self::BIP32_PREFIX_XPRV => '46089520',
+        self::BIP32_PREFIX_XPUB => '043587cf',
+        self::BIP32_PREFIX_XPRV => '04358394',
     ];
 
     /**
