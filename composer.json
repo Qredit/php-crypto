@@ -1,24 +1,37 @@
 {
     "name": "qredit/crypto",
     "description": "A simple PHP Cryptography Implementation for the Ark Blockchain.",
-    "keywords": ["api", "ark", "blockchain", "crypto", "currency"],
+    "keywords": [
+        "api",
+        "ark",
+        "blockchain",
+        "crypto",
+        "currency"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://github.com/faustbrian"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@brianfaust.me",
+            "homepage": "https://github.com/faustbrian"
+        }
+    ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.4|^8.0",
         "bitwasp/bitcoin": "^1.0",
-        "faustbrian/binary": "^0.4.0"
+        "konceiver/binary": "^3.0",
+        "konceiver/bytebuffer": "^3.0",
+        "simplito/elliptic-php": "^1.0"
     },
     "require-dev": {
-        "illuminate/support": "^5.7",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "graham-campbell/analyzer": "^3.0",
+        "illuminate/support": "^7.0.0",
         "mockery/mockery": "^1.2",
-        "phpunit/phpunit": "^7.5",
-        "spatie/phpunit-watcher": "^1.8",
-        "symfony/var-dumper": "^4.2"
+        "pestphp/drift": "^0.3.0",
+        "pestphp/pest": "^0.3.8",
+        "phpunit/phpunit": "^9.3.10",
+        "symfony/var-dumper": "^5.0.0"
     },
     "autoload": {
         "psr-4": {
@@ -40,8 +53,13 @@
         }
     },
     "scripts": {
-        "test-watch": [
-            "vendor/bin/phpunit-watcher watch"
+        "format": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "test": [
+            "./vendor/bin/pest --coverage --min=100 --coverage-html=.coverage --coverage-clover=coverage.xml"
         ]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

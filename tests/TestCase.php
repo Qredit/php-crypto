@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Crypto;
 
-use ArkEcosystem\Crypto\Networks\Devnet;
 use ArkEcosystem\Crypto\Configuration\Network;
+use ArkEcosystem\Crypto\Networks\Mainnet;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -23,11 +23,12 @@ abstract class TestCase extends BaseTestCase
         Concerns\Serialize,
         Concerns\Deserialize;
 
-    protected $passphrase = 'This is a top secret passphrase';
-    protected $secondPassphrase = 'This is a top secret second passphrase';
+    protected $passphrase = 'this is a top secret passphrase';
 
-    protected function setUp()
+    protected $secondPassphrase = 'this is a top secret second passphrase';
+
+    protected function setUp(): void
     {
-        Network::set(Devnet::new());
+        Network::set(Mainnet::new());
     }
 }

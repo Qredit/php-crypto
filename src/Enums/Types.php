@@ -21,12 +21,24 @@ namespace ArkEcosystem\Crypto\Enums;
 class Types
 {
     const TRANSFER = 0;
+
     const SECOND_SIGNATURE_REGISTRATION = 1;
+
     const DELEGATE_REGISTRATION = 2;
+
     const VOTE = 3;
+
     const MULTI_SIGNATURE_REGISTRATION = 4;
+
     const IPFS = 5;
-    const TIMELOCK_TRANSFER = 6;
-    const MULTI_PAYMENT = 7;
-    const DELEGATE_RESIGNATION = 8;
+
+    const MULTI_PAYMENT = 6;
+
+    const DELEGATE_RESIGNATION = 7;
+
+    const HTLC_LOCK = 8;
+
+    const HTLC_CLAIM = 9;
+
+    const HTLC_REFUND = 10;
 }

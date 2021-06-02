@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Crypto\Utils;
 
-use InvalidArgumentException;
-use BitWasp\Buffertools\Buffer;
-use BitWasp\Bitcoin\Crypto\Hash;
 use ArkEcosystem\Crypto\Identities\PrivateKey;
-use BitWasp\Bitcoin\Signature\SignatureFactory;
+use BitWasp\Bitcoin\Crypto\Hash;
 use BitWasp\Bitcoin\Key\Factory\PublicKeyFactory;
+use BitWasp\Bitcoin\Signature\SignatureFactory;
+use BitWasp\Buffertools\Buffer;
+use InvalidArgumentException;
 
 /**
  * This is the message class.
@@ -59,12 +59,14 @@ class Message
             $this->publicKey = $message->publickey;
         } elseif (property_exists($message, 'publicKey')) {
             $this->publicKey = $message->publicKey;
+        } elseif (property_exists($message, 'signatory')) {
+            $this->publicKey = $message->signatory;
         } else {
             throw new InvalidArgumentException('The given message did not contain a valid public key.');
         }
 
         $this->signature = $message->signature;
-        $this->message = $message->message;
+        $this->message   = $message->message;
     }
 
     /**
@@ -82,7 +84,7 @@ class Message
      *
      * @param mixed $message
      *
-     * @return \ArkEcosystem\Crypto\Message
+     * @return \ArkEcosystem\Crypto\Utils\Message
      */
     public static function new($message): self
     {
@@ -107,7 +109,7 @@ class Message
      * @param string $message
      * @param string $passphrase
      *
-     * @return \ArkEcosystem\Crypto\Message
+     * @return \ArkEcosystem\Crypto\Utils\Message
      */
     public static function sign(string $message, string $passphrase): self
     {
@@ -127,7 +129,7 @@ class Message
      */
     public function verify(): bool
     {
-        $factory = new PublicKeyFactory;
+        $factory = new PublicKeyFactory();
 
         return $factory->fromHex($this->publicKey)->verify(
             new Buffer(hash('sha256', $this->message, true)),
