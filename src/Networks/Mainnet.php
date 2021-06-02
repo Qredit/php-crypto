@@ -26,9 +26,9 @@ class Mainnet extends AbstractNetwork
      * @see Network::$base58PrefixMap
      */
     protected $base58PrefixMap = [
-        self::BASE58_ADDRESS_P2PKH => '3a',
+        self::BASE58_ADDRESS_P2PKH => '4b',
         self::BASE58_ADDRESS_P2SH  => '00',
-        self::BASE58_WIF           => 'bb',
+        self::BASE58_WIF           => '1a',
     ];
 
     /**
@@ -37,8 +37,8 @@ class Mainnet extends AbstractNetwork
      * @see Network::$bip32PrefixMap
      */
     protected $bip32PrefixMap = [
-        self::BIP32_PREFIX_XPUB => '043587cf',
-        self::BIP32_PREFIX_XPRV => '04358394',
+        self::BIP32_PREFIX_XPUB => '46090600',
+        self::BIP32_PREFIX_XPRV => '46089520',
     ];
 
     /**
@@ -46,7 +46,7 @@ class Mainnet extends AbstractNetwork
      */
     public function pubKeyHash(): int
     {
-        return 23;
+        return 75;
     }
 
     /**
@@ -54,6 +54,6 @@ class Mainnet extends AbstractNetwork
      */
     public function epoch(): string
     {
-        return '2017-03-21T13:00:00.000Z';
+        return '2021-01-21T21:21:21.000Z';
     }
 }
